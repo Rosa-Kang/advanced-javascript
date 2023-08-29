@@ -14,17 +14,20 @@
         </header>
 
         <section id="calculator">
-            <input type="number" id="input-number" />
+            <input onchange="getInput()" type="number" id="input-number" />
             <div id="calc-actions">
-                <button type="button" id="btn-add">+</button>
-                <button type="button" id="btn-subtract">-</button>
-                <button type="button" id="btn-multiply">*</button>
-                <button type="button" id="btn-divide">/</button>
+                <button onClick="add()" type="button" id="btn-add">+</button>
+                <button onClick="subtract()" type="button" id="btn-subtract">-</button>
+                <button onClick="multiply()" type="button" id="btn-multiply">*</button>
+                <button onClick="divide()" type="button" id="btn-divide">/</button>
             </div>
         </section>
         <section id="results">
             <h2 id="current-calculation">0</h2>
             <h2>Result: <span id="current-result">0</span></h2>
+            <div>
+              <p>Data Types : Numbers, Strings, Array, Booleans</p>
+            </div>
         </section>
         <script src="./assets/scripts/vendor.js"></script>
         <script src="./assets/scripts/app.js"></script>
