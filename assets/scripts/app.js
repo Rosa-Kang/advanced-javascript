@@ -1,3 +1,5 @@
+//order matters for declaration, but not for the functions. therefore you can place your function to the top or to the bottom upon your style.
+
 const defaultResult = 0;
 let currentResult = defaultResult;
 let inputNum = getInput();
@@ -8,23 +10,19 @@ let calculationLogic = `${defaultResult} + ${currentResult}`;
 outputResult(currentResult, calculationLogic);
 
 function add(a, b) {
-    const result = a + b;
-    return result;
+    return a + b;
 }
 
 function divide(a, b) {
-    const result = a / b;
-    return result;
+    return a / b;
 }
 
 function subtract(a, b) {
-    const result = a - b;
-    return result;
+    return a - b;
 }
 
 function multiply(a, b) {
-    const result = a * b;
-    return result;
+    return a * b;
 }
 
 function getInput(e) {
