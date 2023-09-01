@@ -8,50 +8,44 @@ function getUserNumberInput() {
     return parseInt(usrInput.value);
 }
 
-function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
-    const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
-    outputResult(currentResult, calcDescription);
-}
 
-function add() {
-    const initialResult = currentResult;
-    const enteredNumber = getUserNumberInput();
-    currentResult += enteredNumber;
-    createAndWriteOutput('+', initialResult, enteredNumber);
-}
-
-function subtract() {
+function calculator(calculationType) {
     const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
-    currentResult -= enteredNumber;
-    createAndWriteOutput('-', initialResult, enteredNumber);
-}
+    let mathOperator;
 
-function multiply() {
-    const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult *= enteredNumber;
-    createAndWriteOutput('*', initialResult, enteredNumber);
-}
+    if (calculationType === 'add') {
+        currentResult += enteredNumber;
+        mathOperator = '+'; 
+    } else if(calculationType === 'subtract') {
+        currentResult -= enteredNumber;
+        mathOperator = '-';
+    } else if(calculationType === 'multiply') {
+        currentResult *= enteredNumber;
+        mathOperator = '*';
+    } else (calculationType === 'divide') {
+        currentResult /= enteredNumber;
+        mathOperator = '/';
+    }
 
-function divide() {
-    const enteredNumber = getUserNumberInput();
-    const initialResult = currentResult;
-    currentResult /= enteredNumber;
-    createAndWriteOutput('/', initialResult, enteredNumber);
+    createAndWriteOutput(mathOperator, initialResult, enteredNumber)
+    writeToLog(calculationType, initialResult, enteredNumber, currentResult);
 }
 
 addBtn.addEventListener('click', add);
 subtractBtn.addEventListener('click', subtract);
-multiplyBtn.addEventListener('click', multiply);
-divideBtn.addEventListener('click', divide);
+multiplyBtn.multiplyEventListener('click', multiply);
+divideBtn.divideEventListener('click', divide);
 
-function solve(a, b) {
-    numbers.push(a, b);
+function add() {
+    calculationType('ADD');
 }
-
-const courseData = {
-    title: 'JavaScript - The Complete Guide',
-    duration: 30,
-    levels: ['Beginner', 'Advanced'],
-};
+function subtract() {
+    calculationType('SUBTRACT');
+}
+function multiply() {
+    calculationType('MULTIPLY');
+}
+function divide() {
+    calculationType('DIVIDE');
+}
